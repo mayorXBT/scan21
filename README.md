@@ -1,8 +1,6 @@
-<div align="center">
-
-![Scan21](./assets/scan21-logo.png)
-
-</div>
+<p align="center">
+  <img src="./assets/scan21-logo.png" alt="Scan21" width="240" />
+</p>
 
 # scan21
 
