@@ -17,7 +17,7 @@ Finding those used to mean pulling a wallet's full history and parsing it yourse
 
 Helius's official MCP (`helius-mcp`, 10 tools) already wraps Scan as `heliusTransaction.scanTransactionHistory`. It does not join live token-account state with that history, score risk, or hand back an unsigned revoke transaction. scan21 does.
 
-Proposal filed on [helius-labs/core-ai](https://github.com/helius-labs/core-ai) for an `auditWalletExposure` action. Link in [Helius MCP](#helius-mcp) once the issue is up.
+Proposal: [helius-labs/core-ai#229](https://github.com/helius-labs/core-ai/issues/229) (`auditWalletExposure` on `heliusTransaction`).
 
 ## Install
 
@@ -201,7 +201,7 @@ npx tsx scripts/live-audit.ts <WALLET> <creditCap>
 
 ## Helius MCP
 
-[helius-labs/core-ai](https://github.com/helius-labs/core-ai) already exposes Scan as `scanTransactionHistory`. The gap is the exposure join, risk table, and unsigned revoke. Issue proposing `auditWalletExposure` is linked here after it is filed.
+[helius-labs/core-ai](https://github.com/helius-labs/core-ai) already exposes Scan as `scanTransactionHistory`. The gap is the exposure join, risk table, and unsigned revoke. Proposed as [`auditWalletExposure`](https://github.com/helius-labs/core-ai/issues/229).
 
 ## Out of scope
 
