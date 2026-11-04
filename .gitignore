@@ -8,3 +8,7 @@ demo/out/
 demo/renders/
 demo/.hyperframes/
 demo/node_modules/
+
+# original logo dumps at repo root; canonical copies live in assets/
+/Scan21 geometric scanning face logo.png
+/Isolated black abstract face symbol.png

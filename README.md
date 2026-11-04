@@ -1,3 +1,9 @@
+<div align="center">
+
+![Scan21](./assets/scan21-logo.png)
+
+</div>
+
 # scan21
 
 MCP server that audits a Solana wallet for dangling token delegations and token-account owner changes. One tool call. Powered by Helius [Parsed Events Scan](https://www.helius.dev/docs/api-reference/parsed-events/scan.md) (`POST /v1/parsed-events/scan`, launched 3 Nov 2026).
@@ -212,6 +218,10 @@ Signing or sending transactions, custody of keys, UI, non-Solana chains.
 30-second muted clip: Claude Code prompt, HIGH live-delegate table, unsigned revoke, end card at ~20 credits.
 
 [`demo/scan21-demo.mp4`](demo/scan21-demo.mp4)
+
+## Brand
+
+Wordmark + geometric face: [`assets/scan21-logo.png`](assets/scan21-logo.png). Isolated mark: [`assets/scan21-mark.png`](assets/scan21-mark.png).
 
 ## License
 
