@@ -5,3 +5,6 @@ coverage/
 *.log
 .DS_Store
 demo/out/
+demo/renders/
+demo/.hyperframes/
+demo/node_modules/

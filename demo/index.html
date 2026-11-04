@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>scan21</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --ground: #07090c;
+        --panel: #10141a;
+        --ink: #e8edf2;
+        --dim: #8b96a3;
+        --line: #243040;
+        --high: #ff5a3c;
+        --ok: #7dffb3;
+        --warn: #ffc857;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: var(--ground);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        color: var(--ink);
+        font-family: sans-serif;
+      }
+      .fill {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(1200px 700px at 20% 0%, #142033 0%, transparent 60%),
+          var(--ground);
+      }
+      .grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        background-size: 48px 48px;
+        opacity: 0.5;
+      }
+      .clip {
+        position: absolute;
+        inset: 0;
+      }
+      .inner {
+        position: absolute;
+        inset: 0;
+      }
+      #wordmark {
+        position: absolute;
+        top: 48px;
+        left: 64px;
+        font-size: 28px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--dim);
+      }
+      #kicker {
+        position: absolute;
+        left: 64px;
+        right: 64px;
+        bottom: 48px;
+        font-size: 32px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+      }
+      #title-block {
+        position: absolute;
+        left: 64px;
+        top: 280px;
+        width: 1600px;
+      }
+      #title-block h1 {
+        font-size: 96px;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 1.05;
+      }
+      #title-block p {
+        margin-top: 28px;
+        font-size: 36px;
+        color: var(--dim);
+        max-width: 1200px;
+      }
+      .terminal {
+        position: absolute;
+        left: 80px;
+        top: 120px;
+        width: 1760px;
+        height: 820px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 36px 44px;
+        font-family: monospace;
+      }
+      .chrome {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 28px;
+      }
+      .dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #3a4554;
+      }
+      .dot.r {
+        background: #ff5a3c;
+      }
+      .prompt-label {
+        color: var(--ok);
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+      .prompt-text {
+        font-size: 34px;
+        line-height: 1.35;
+        color: var(--ink);
+        max-width: 1600px;
+      }
+      .summary {
+        font-size: 40px;
+        font-weight: 700;
+        margin: 18px 0 28px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 28px;
+      }
+      th {
+        text-align: left;
+        color: var(--dim);
+        font-weight: 500;
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--line);
+      }
+      td {
+        padding: 14px 12px;
+        border-bottom: 1px solid var(--line);
+      }
+      tr.high td {
+        background: rgba(255, 90, 60, 0.12);
+      }
+      .risk {
+        color: var(--high);
+        font-weight: 700;
+      }
+      .fix {
+        margin-top: 28px;
+        font-size: 28px;
+        color: var(--dim);
+      }
+      .fix strong {
+        color: var(--warn);
+        font-weight: 700;
+      }
+      .b64 {
+        margin-top: 12px;
+        font-size: 28px;
+        color: var(--ok);
+        word-break: break-all;
+      }
+      #end-card {
+        position: absolute;
+        left: 80px;
+        top: 280px;
+        width: 1760px;
+      }
+      #end-card h2 {
+        font-size: 64px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.15;
+        max-width: 1600px;
+      }
+      #end-credits {
+        margin-top: 36px;
+        font-size: 40px;
+        color: var(--ok);
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="30"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div class="fill"></div>
+      <div class="grid"></div>
+      <div id="wordmark">scan21</div>
+      <div id="kicker">One call. Full-history wallet drain audit.</div>
+
+      <section id="scene-title" class="clip" data-start="0" data-duration="5.5" data-track-index="1">
+        <div id="title-block" class="inner">
+          <h1 id="hero-title" data-hold>Find what can still drain the wallet.</h1>
+          <p id="hero-sub">Dangling SPL delegates and token-account owner changes, joined from live state plus Helius Scan.</p>
+        </div>
+      </section>
+
+      <section id="scene-prompt" class="clip" data-start="5.5" data-duration="4.5" data-track-index="2">
+        <div id="prompt-panel" class="terminal">
+          <div class="chrome"><span class="dot r"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="prompt-label">Claude Code</div>
+          <div class="prompt-text" id="prompt-copy">
+            audit this wallet for anything that can drain it: GV6UUmNxz2RpKxmNAPadYKb7uQpszwqQAu3qLJxVdC52
+          </div>
+        </div>
+      </section>
+
+      <section id="scene-audit" class="clip" data-start="10" data-duration="13" data-track-index="3">
+        <div id="audit-panel" class="terminal">
+          <div class="chrome"><span class="dot r"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="prompt-label">audit_wallet_exposure</div>
+          <div class="summary" id="summary-line">1 live delegate can move your tokens, 1 high risk</div>
+          <table>
+            <thead>
+              <tr>
+                <th>token</th>
+                <th>delegate</th>
+                <th>amount at risk</th>
+                <th>granted via</th>
+                <th>risk</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="high" id="high-row">
+                <td>USDC</td>
+                <td>JUP6Lk…NyVTaV4</td>
+                <td>50.00</td>
+                <td>Jupiter</td>
+                <td class="risk">HIGH</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="fix" id="fix-note" data-hold>
+            <strong>Unsigned revoke.</strong> Sign it in your own wallet. scan21 never signs or sends.
+          </div>
+          <div class="b64" id="fix-b64" data-hold>AQAAAA unsignedTransactionBase64 BQ==</div>
+        </div>
+      </section>
+
+      <section id="scene-end" class="clip" data-start="23" data-duration="7" data-track-index="4">
+        <div id="end-card" class="inner">
+          <h2 id="end-copy" data-hold>Helius Scan API → full-history wallet audit in one call.</h2>
+          <div id="end-credits" data-hold>~20 credits</div>
+        </div>
+      </section>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#hero-title", { y: 36, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" }, 0.15);
+      tl.fromTo("#hero-sub", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.2);
+      tl.fromTo("#prompt-panel", { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 5.55);
+      tl.fromTo("#prompt-copy", { opacity: 0.4 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, 6.4);
+      tl.fromTo("#audit-panel", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 10.05);
+      tl.fromTo("#high-row", { opacity: 0.4 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 11.2);
+      tl.fromTo("#fix-note", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 13.2);
+      tl.fromTo("#fix-b64", { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 13.6);
+      tl.fromTo("#high-row", { opacity: 0.55 }, { opacity: 1, duration: 0.35, ease: "power2.out", immediateRender: false }, 16.5);
+      tl.fromTo("#fix-note", { opacity: 0.7 }, { opacity: 1, duration: 0.3, ease: "power2.out", immediateRender: false }, 19.2);
+      tl.fromTo("#end-copy", { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 23.1);
+      tl.fromTo("#end-credits", { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 23.5);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

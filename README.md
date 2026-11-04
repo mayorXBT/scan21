@@ -207,6 +207,12 @@ npx tsx scripts/live-audit.ts <WALLET> <creditCap>
 
 Signing or sending transactions, custody of keys, UI, non-Solana chains.
 
+## Demo
+
+30-second muted clip: Claude Code prompt, HIGH live-delegate table, unsigned revoke, end card at ~20 credits.
+
+[`demo/scan21-demo.mp4`](demo/scan21-demo.mp4)
+
 ## License
 
 MIT. Copyright 2026 mayorXBT.
